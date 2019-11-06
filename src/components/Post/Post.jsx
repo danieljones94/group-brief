@@ -5,8 +5,8 @@ class Post extends Component {
   state = {};
   render() {
     return (
-      <article className={styles[this.props.type]}>
-        <p>{this.props.text}</p>
+      <article className={styles[this.props.postData.type]}>
+        <p>{this.props.postData.text}</p>
       </article>
     );
   }

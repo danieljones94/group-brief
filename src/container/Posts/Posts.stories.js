@@ -10,4 +10,4 @@ export default {
   title: "Posts"
 };
 
-export const posts = () => <Posts postData={data} />;
+export const posts = () => <Posts type="type1" />;
