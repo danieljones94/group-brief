@@ -3,12 +3,14 @@ import styles from "./App.module.scss";
 import { firestore } from "../../firebase";
 import Button from "../../components/Button";
 import Posts from "../Posts";
+import Buttons from "../Buttons";
 
 class App extends Component {
   state = {
     posts: [],
     filterPosts: [],
-    filterType: "all"
+    filterType: "all",
+    colors: []
   };
 
   updatePosts = filterType => {
@@ -30,9 +32,11 @@ class App extends Component {
           const data = { ...doc.data(), docId: doc.id };
           return data;
         });
+        const colors = [...new Set(posts.map(post => post.type))];
         this.setState({
           posts: posts,
-          filterPosts: posts
+          filterPosts: posts,
+          colors
         });
       });
   }
@@ -40,10 +44,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className={styles.appHeader}>
-          <Button buttonName="all" action={() => this.updatePosts("all")} />
+          {/* <Button buttonName="all" action={() => this.updatePosts("all")} />
           <Button buttonName="type1" action={() => this.updatePosts("type1")} />
           <Button buttonName="type2" action={() => this.updatePosts("type2")} />
-          <Button buttonName="type3" action={() => this.updatePosts("type3")} />
+    <Button buttonName="type3" action={() => this.updatePosts("type3")} /> */}
+          <Buttons buttonColors={this.state.colors} />
         </header>
         <main>
           <Posts posts={this.state.filterPosts} />
