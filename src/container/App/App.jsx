@@ -44,11 +44,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className={styles.appHeader}>
-          {/* <Button buttonName="all" action={() => this.updatePosts("all")} />
-          <Button buttonName="type1" action={() => this.updatePosts("type1")} />
-          <Button buttonName="type2" action={() => this.updatePosts("type2")} />
-    <Button buttonName="type3" action={() => this.updatePosts("type3")} /> */}
-          <Buttons buttonColors={this.state.colors} />
+          <Button buttonName="all" action={() => this.updatePosts("all")} />
+          <Buttons
+            buttonColors={this.state.colors}
+            updatePosts={this.updatePosts}
+          />
         </header>
         <main>
           <Posts posts={this.state.filterPosts} />
