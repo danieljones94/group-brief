@@ -5,7 +5,7 @@ import Post from "../../components/Post";
 class Posts extends Component {
   render() {
     return (
-      <div>
+      <div className={styles.postBox}>
         {this.props.posts.map(postData => {
           return <Post postData={postData} key={postData.docId} />;
         })}
